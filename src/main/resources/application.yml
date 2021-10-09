@@ -5,7 +5,7 @@ spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
 #    url: jdbc:mysql://176.20.94.63:3306/ltyp
-    url: jdbc:mysql://localhost:3306/zjdx_department_score
+    url: jdbc:mysql://61.153.204.37:3306/zjdx_department_score
     username: root
     password: root
 #  mvc:
