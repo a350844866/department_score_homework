@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.zjdx.department_score_homework.mapper.DepQuesScoreMapper">
+    <select id="getAllData" resultType="DepQuesScore">
+        select id,department_id,question_id,score,create_time,modify_time from dep_ques_score
+    </select>
+
+    <update id="updateDataList">
+        <foreach collection="depQuesScoreList" item="item" index="index" open="" close="" separator=";">
+            update dep_ques_score
+            <set>
+                score=${item.score},modify_time=sysdate
+            </set>
+            where id = ${item.id}
+        </foreach>
+    </update>
+
+</mapper>

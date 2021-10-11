@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.zjdx.department_score_homework.mapper.UserMapper">
+    <select id="findUserByU_P" resultType="User">
+        select * from user
+        where login_name=#{loginName} and password=#{password}
+    </select>
+
+</mapper>
