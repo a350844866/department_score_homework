@@ -8,10 +8,12 @@ import com.zjdx.department_score_homework.service.DepartmentService;
 import com.zjdx.department_score_homework.service.QuestionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
 @Service
+@Transactional
 public class QuestionServiceImpl implements QuestionService {
 
     @Autowired
@@ -19,6 +21,6 @@ public class QuestionServiceImpl implements QuestionService {
 
     @Override
     public List<Question> getAllQuestion() {
-        return questionMapper.getAllDQuestion();
+        return questionMapper.getAllQuestion();
     }
 }

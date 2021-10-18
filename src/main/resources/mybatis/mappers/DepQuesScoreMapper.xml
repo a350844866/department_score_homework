@@ -4,15 +4,33 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.zjdx.department_score_homework.mapper.DepQuesScoreMapper">
+    <insert id="insert">
+        insert into dep_ques_score (id,department_id,question_id,score,create_time,modify_time,user_id) values (null ,#{departmentId},#{questionId},#{score},sysdate(),sysdate(),#{userId})
+    </insert>
+
     <select id="getAllData" resultType="DepQuesScore">
-        select id,department_id,question_id,score,create_time,modify_time from dep_ques_score
+        select id,department_id,question_id,score,create_time,modify_time,user_id from dep_ques_score
     </select>
 
+    <select id="getByUK" resultType="DepQuesScore">
+        select id,department_id,question_id,score,create_time,modify_time from dep_ques_score
+        where department_id=#{departmentId} and question_id = #{questionId} and user_id=#{userId}
+    </select>
+
+    <select id="getByUserId" resultType="DepQuesScore">
+        select id,department_id,question_id,score,create_time,modify_time from dep_ques_score
+        where  user_id=#{userId}
+    </select>
+
+
+    <update id="updateScoreById">
+        update dep_ques_score set score=#{score},modify_time=sysdate() where id=#{id}
+    </update>
     <update id="updateDataList">
         <foreach collection="depQuesScoreList" item="item" index="index" open="" close="" separator=";">
             update dep_ques_score
             <set>
-                score=${item.score},modify_time=sysdate
+                score=${item.score},modify_time=sysdate()
             </set>
             where id = ${item.id}
         </foreach>

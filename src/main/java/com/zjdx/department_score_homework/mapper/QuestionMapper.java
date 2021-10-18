@@ -10,5 +10,5 @@ public interface QuestionMapper {
      * 获取全部部门
      * @return
      */
-    List<Question> getAllDQuestion();
+    List<Question> getAllQuestion();
 }

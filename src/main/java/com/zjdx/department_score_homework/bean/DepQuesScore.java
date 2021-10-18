@@ -19,4 +19,9 @@ public class DepQuesScore {
 
     private Date modifyTime;
 
+    /**
+     * 評價的用戶id
+     */
+    private int userId;
+
 }

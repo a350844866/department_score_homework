@@ -1,0 +1,76 @@
+<%@ page language="java" pageEncoding="UTF-8"%>
+<%@ include file="base.jsp" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+      <title>部门评分系统</title>
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <link rel="stylesheet" type="text/css" href="${ctx}/staticfile/lib/bootstrap/css/bootstrap.css">
+    
+    <link rel="stylesheet" type="text/css" href="${ctx}/staticfile/stylesheets/theme.css">
+    <link rel="stylesheet" href="${ctx}/staticfile/lib/font-awesome/css/font-awesome.css">
+
+    <script src="${ctx}/staticfile/lib/jquery-1.7.2.min.js" type="text/javascript"></script>
+ 
+
+    <link rel="stylesheet" type="text/css" href="${ctx}/staticfile/css/logo.css">
+    
+   
+  </head>
+ 
+  <body class=""> 
+  
+    
+    <div class="navbar">
+        <div class="navbar-inner">
+                <ul class="nav pull-right">
+                    
+                </ul>
+                <a class="brand" href="#"><span class="first">部门</span> <span class="second">评分系统</span></a>
+        </div>
+    </div> 
+        <div class="row-fluid">
+    <div class="dialog">
+        <div class="block">
+            <p class="block-heading">Sign &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span
+                    style="color: red">${errorInfo}</span></p>
+
+            <div class="block-body">
+                <form>
+
+                    <input type="text" class="span12" placeholder="请输入用户名" name="loginName"
+                           value="${cookie.remname.value}">
+                     
+                    <input type="password" class="span12" placeholder="请输入密码" name="password">
+                    <a href="#" onclick="formSubmitPost('login','_self');this.blur();" class="btn btn-primary pull-right">登 录</a>
+                    记住登录名<input name="remname" type="checkbox"
+                                value="true" ${ empty cookie.remname ? "" : "checked='checked'" }>
+                    <div class="clearfix"></div>
+                </form>
+            </div>
+        </div>
+        <p class="pull-right" style=""><a href="/login/signup" target="_self" hidden="hidden">注 册</a></p>
+        <p><a href="${ctx}/toSendForgetMail" hidden="hidden">忘记密码 ?</a></p>
+    </div>
+</div>
+ 
+
+    <script src="${ctx}/staticfile/lib/bootstrap/js/bootstrap.js"></script>
+    <script type="text/javascript">
+        $("[rel=tooltip]").tooltip(); //提示框
+        $(function() {
+            $('.demo-cancel-click').click(function(){return false;});
+        });
+    </script>
+    
+  </body>
+</html>
+
+
